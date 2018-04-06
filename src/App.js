@@ -10,45 +10,21 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
-
-    this.state = { 
-      inventoryList : [],
-      my_url : '/api/inventory',
-      currently_selected : {},
-    }
-
-    this.getProducts = this.getProducts.bind ( this );
+    
     this.setSelectedProduct = this.setSelectedProduct.bind ( this );
   }
 
-  componentDidMount() {
-    this.getProducts();
-  }
+  
+  // setSelectedProduct(product) { 
+  //   console.log('changing some shiz');
+  //   this.setState({ currently_selected : product })
 
-  getProducts() {
-    axios.get(this.state.my_url).then((res)=> {
-      this.setState({ inventoryList: res.data})
-    })
-  }
-  setSelectedProduct(product) { 
-    console.log('changing some shiz');
-    this.setState({ currently_selected : product })
-
-  }
+  // }
 
   render() {
     return (
-      <div className="App">
-      {console.log(this.state.currently_selected)}
-        <Dashboard inventorylist={this.state.inventoryList}
-                   getProducts={this.getProducts} 
-                   setSelectedProduct={this.setSelectedProduct}
-                   />
-        <Header />
-        <Form getProducts={this.getProducts}
-              currently_selected={this.state.currently_selected}
-        />        
-        
+      <div>
+      
       </div>
     );
   }

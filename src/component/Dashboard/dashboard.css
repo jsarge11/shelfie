@@ -1,0 +1,17 @@
+html {
+ height: 100%;
+}
+body {
+ height: 100%;
+}
+.App {
+ display: flex;
+ align-content: space-between;
+}
+.productWrapper {
+ margin: 15%;
+ width: 60vh;
+}
+.products {
+ background: #AB2A19;
+}

@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
+import './form.css'
 
 export default class Form extends Component {
  constructor() {
@@ -54,12 +56,14 @@ export default class Form extends Component {
    price: this.state.product_price,
    img_url:  img_url,
   }
+
+  console.log(this.props);
   axios.post('/api/product', { product }).then(() => {
     this.props.getProducts();
   })
  }
  updateProduct() {
-  
+
   let img_url = this.state.user_image_url ? this.state.user_image_url : this.state.image_url
 
   let product = {
@@ -89,7 +93,7 @@ export default class Form extends Component {
      <input onChange={(e)=>this.updatePrice(e.target.value)} type='text'placeholder="price goes here ... " value={this.state.product_price}/>
     </div>
     <div className="buttonwrapper">
-     <button onClick={()=>this.resetInput()}>Cancel</button>
+     <Link to='/'><button onClick={()=>this.resetInput()}>Cancel</button></Link>
      {this.state.display_add ? add_to_inventory : save_changes} 
     </div>
    </div>

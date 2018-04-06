@@ -1,0 +1,10 @@
+.formwrapper {
+ background: #3AD886;
+ margin: 10% 10% 5% 5%;
+ height: 50vh;
+ width: 40vh;
+}
+.inputwrapper {
+ display: flex;
+ flex-direction: column;
+}

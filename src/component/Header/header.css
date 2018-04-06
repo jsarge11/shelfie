@@ -1,0 +1,15 @@
+.header {
+ height: 10vh;
+ background: #AB2A19;
+ color: white;
+ display: flex;
+ align-items: center;
+
+}
+.logo {
+ color: white;
+ margin-left: 5%;
+}
+.text {
+ margin-left: 3%;
+}
