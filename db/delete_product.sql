@@ -1,0 +1,1 @@
+delete from shelfie_product_table where product_id = $1

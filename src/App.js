@@ -32,7 +32,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Dashboard inventorylist={this.state.inventoryList}/>
+        <Dashboard inventorylist={this.state.inventoryList} getProducts={this.getProducts} />
         <Header />
         <Form getProducts={this.getProducts}/>        
         

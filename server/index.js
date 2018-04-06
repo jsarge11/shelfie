@@ -12,6 +12,7 @@ const connectionString = 'postgres://khqgmebzfsmfqt:f283f804a31f7789e86c54da5fa2
 
 app.get('/api/inventory', ctrl.get)
 app.post('/api/product', ctrl.create)
+app.delete('/api/product/:id', ctrl.delete)
 
 massive(connectionString).then(connection => {
  app.set('db', connection); //hold onto this thought // no correlation between this and the db folder // 
