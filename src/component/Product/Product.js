@@ -9,7 +9,7 @@ export default function Product(props) {
    Name: {props.product.name}
    Price: {props.product.price}
    <button onClick={()=>props.deleteProduct(props.product.product_id)}>delete</button>
-   <button>edit</button>
+   <button onClick={()=>props.setSelectedProduct(props.product)}>edit</button>
   </div>
  );
 }

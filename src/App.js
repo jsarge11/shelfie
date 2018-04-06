@@ -14,9 +14,11 @@ class App extends Component {
     this.state = { 
       inventoryList : [],
       my_url : '/api/inventory',
+      currently_selected : {},
     }
 
     this.getProducts = this.getProducts.bind ( this );
+    this.setSelectedProduct = this.setSelectedProduct.bind ( this );
   }
 
   componentDidMount() {
@@ -28,13 +30,24 @@ class App extends Component {
       this.setState({ inventoryList: res.data})
     })
   }
+  setSelectedProduct(product) { 
+    console.log('changing some shiz');
+    this.setState({ currently_selected : product })
+
+  }
 
   render() {
     return (
       <div className="App">
-        <Dashboard inventorylist={this.state.inventoryList} getProducts={this.getProducts} />
+      {console.log(this.state.currently_selected)}
+        <Dashboard inventorylist={this.state.inventoryList}
+                   getProducts={this.getProducts} 
+                   setSelectedProduct={this.setSelectedProduct}
+                   />
         <Header />
-        <Form getProducts={this.getProducts}/>        
+        <Form getProducts={this.getProducts}
+              currently_selected={this.state.currently_selected}
+        />        
         
       </div>
     );

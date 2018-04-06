@@ -19,7 +19,10 @@ export default class Dashboard extends Component {
   let products = this.props.inventorylist.map((item, i) => {
    return (
    <div key = {i + item} >
-    <Product deleteProduct={this.deleteProduct} product={item}/>
+    <Product deleteProduct={this.deleteProduct} 
+             setSelectedProduct={this.props.setSelectedProduct}
+             product={item}
+             />
    </div>
    );
   })
