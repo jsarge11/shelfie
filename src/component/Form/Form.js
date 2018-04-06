@@ -37,16 +37,16 @@ export default class Form extends Component {
  
  render() {
   return( 
-   <div className="formWrapper">
+   <div className="formwrapper">
     <div>
-     <img src={this.state.image_url} alt='exampleimg'/>
+     <img height="50px" src={this.state.image_url} alt='exampleimg'/>
     </div>
-    <div className="inputWrapper">
+    <div className="inputwrapper">
      <input onChange={(e)=>this.updateURL(e.target.value)} type='text' placeholder="image url goes here ... " value={this.state.user_image_url}/>
      <input onChange={(e)=>this.updateName(e.target.value)} type='text' placeholder="product name goes here ... " value={this.state.product_name}/>
      <input onChange={(e)=>this.updatePrice(e.target.value)} type='text'placeholder="price goes here ... " value={this.state.product_price}/>
     </div>
-    <div buttonWrapper>
+    <div className="buttonwrapper">
      <button onClick={()=>this.resetInput()}>Cancel</button>
      <button>Add to Inventory</button>
     </div>
