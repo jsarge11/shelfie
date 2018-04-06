@@ -15,6 +15,8 @@ class App extends Component {
       inventoryList : [],
       my_url : '/api/inventory',
     }
+
+    this.getProducts = this.getProducts.bind ( this );
   }
 
   componentDidMount() {
@@ -32,7 +34,7 @@ class App extends Component {
       <div className="App">
         <Dashboard inventorylist={this.state.inventoryList}/>
         <Header />
-        <Form />        
+        <Form getProducts={this.getProducts}/>        
         
       </div>
     );
