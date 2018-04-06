@@ -1,5 +1,5 @@
 module.exports = {
- get: (req, res) => {
+ read: (req, res) => {
   const db = req.app.get('db');
   db.get_inventory().then( ( product )=>res.status(200).send( product ))
   
@@ -11,6 +11,12 @@ module.exports = {
    res.status(200).send(req.body);
   })
  },
+ update: (req, res) => {
+  const db = req.app.get('db');
+  let { name, price, img_url } = req.body.product;
+  db.update_product(name, price, img_url, req.params.id).then( (product) =>res.status(200).send(product))
+ },
+
  delete: (req, res) => {
   const db = req.app.get('db');
 
@@ -19,4 +25,5 @@ module.exports = {
    res.status(200).send()
   })
  }
+
 }

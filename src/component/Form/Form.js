@@ -58,6 +58,21 @@ export default class Form extends Component {
     this.props.getProducts();
   })
  }
+ updateProduct() {
+  
+  let img_url = this.state.user_image_url ? this.state.user_image_url : this.state.image_url
+
+  let product = {
+   name: this.state.product_name,
+   price: this.state.product_price,
+   img_url:  img_url,
+  }
+  axios.put('/api/product/' + this.props.currently_selected.product_id, { product }).then(() => {
+   this.props.getProducts();
+  })
+
+  this.setState({ display_add : true})
+ }
  
  render() {
    let add_to_inventory = <button onClick={()=>this.createProduct()}>Add to Inventory</button>
