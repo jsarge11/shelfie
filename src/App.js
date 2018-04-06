@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 import Dashboard from './component/Dashboard/Dashboard'
 import Form from './component/Form/Form'
 import Header from './component/Header/Header'
@@ -11,9 +12,21 @@ class App extends Component {
     super();
 
     this.state = { 
-      inventoryList : [{name: 'shirt', price: 9.99, url: 'https://www.endurasport.com/assets/images/prodbrowser/product_placeholder.jpg' }, {name: 'socks', price: 3.99, url: 'https://www.endurasport.com/assets/images/prodbrowser/product_placeholder.jpg'}, {name: 'hat', price: 19.99, url: 'https://www.endurasport.com/assets/images/prodbrowser/product_placeholder.jpg'}],
+      inventoryList : [],
+      my_url : '/api/inventory',
     }
   }
+
+  componentDidMount() {
+    this.getProducts();
+  }
+
+  getProducts() {
+    axios.get(this.state.my_url).then((res)=> {
+      this.setState({ inventoryList: res.data})
+    })
+  }
+
   render() {
     return (
       <div className="App">
